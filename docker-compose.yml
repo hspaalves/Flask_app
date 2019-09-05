@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  redis:
+    image: redis
+  application:
+    build: .
+    command: python InternetLibrary/app.py
+    volumes:
+      - .:/code
+    ports:
+      - "5000:5000"
+    depends_on:
+      - redis
