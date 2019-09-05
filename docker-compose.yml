@@ -5,7 +5,9 @@ services:
     image: redis
   application:
     build: .
-    command: python InternetLibrary/app.py
+    command: python InternetLibrary/app.py &&
+      export FLASK_ENV=development &&
+      export DATABASE_URL= postgres://0.0.0.0:5432/Borges
     volumes:
       - .:/code
     ports:
